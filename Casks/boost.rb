@@ -25,7 +25,11 @@ cask "boost" do
   #
   #     git clone https://github.com/Kernel-Hunter/boost.git
   #     cd boost && ./Scripts/build.sh
-  postflight_steps do
+  # Deliberately `postflight` and not `postflight_steps`, which Homebrew 7
+  # prints a deprecation warning for: the replacement DSL does not expose
+  # `appdir`, so the modern spelling fails outright with "undefined local
+  # variable or method 'appdir'". A warning beats a cask that cannot be read.
+  postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Boost.app"],
                    sudo: false
