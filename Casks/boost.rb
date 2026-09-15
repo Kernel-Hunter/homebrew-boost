@@ -25,7 +25,7 @@ cask "boost" do
   #
   #     git clone https://github.com/Kernel-Hunter/boost.git
   #     cd boost && ./Scripts/build.sh
-  postflight do
+  postflight_steps do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Boost.app"],
                    sudo: false
