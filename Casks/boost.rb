@@ -1,6 +1,6 @@
 cask "boost" do
-  version "1.1.0"
-  sha256 "0f122594e3eb9cd6ed5d603969159de33f8a4b3f733b25b7e51d509485da12a5"
+  version "1.2.0"
+  sha256 "80ae5589558a592aaf33c903dd2e737a5d6890dc80fc44107c156aadb75e7232"
 
   url "https://github.com/Kernel-Hunter/boost/releases/download/v#{version}/Boost.zip"
   name "Boost"
