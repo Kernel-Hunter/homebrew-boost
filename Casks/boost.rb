@@ -7,6 +7,10 @@ cask "boost" do
   desc "Memory and disk utility for macOS"
   homepage "https://github.com/Kernel-Hunter/boost"
 
+  # From 1.5.0, Boost updates itself through Sparkle (Check for Updates in the
+  # Boost menu). This tells `brew upgrade` to leave it alone unless asked with
+  # --greedy, so Homebrew and the app do not both replace it.
+  auto_updates true
   depends_on macos: :sonoma
 
   app "Boost.app"
@@ -42,6 +46,8 @@ cask "boost" do
   # you your pins.
   zap trash: [
     "~/Library/Application Support/Boost",
+    "~/Library/Caches/boost.local.app",
+    "~/Library/HTTPStorages/boost.local.app",
     "~/Library/Preferences/boost.local.app.plist",
   ]
 end
